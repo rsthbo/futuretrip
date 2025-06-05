@@ -1,0 +1,1 @@
+export type MethodInvocationFunction = (...args: any[]) => any;

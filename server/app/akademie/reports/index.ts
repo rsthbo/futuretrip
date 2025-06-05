@@ -1,0 +1,1 @@
+import './seminarteilnehmer-by-seminar';

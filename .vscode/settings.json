@@ -1,0 +1,6 @@
+{
+    "search.exclude": {
+        "**/.meteor": true
+    },
+    "search.useGlobalIgnoreFiles": true
+}

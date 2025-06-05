@@ -1,0 +1,1107 @@
+@import '{}/node_modules/antd/dist/antd.less';
+
+@default-boxshadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+
+@default-hover-color: #1890ff;
+@default-active-color: #1890ff;
+
+@theme-dark-background-0: #111; @theme-dark-color-0: #444; @theme-dark-border-color-0: #333;
+@theme-dark-background-1: #333; @theme-dark-color-1: #999; @theme-dark-border-color-1: #595959;
+
+@theme-dark-background-input: #333;
+@theme-dark-color-input: #888;
+@theme-dark-border-color-input: #777;
+
+@theme-dark-background-input-disabled: #111;
+@theme-dark-color-input-disabled: darken(orange, 20%);
+@theme-dark-border-color-input-disabled: #111;
+
+@theme-dark-color-2-input: darken(@theme-dark-color-input, 15%);
+@theme-dark-color-2-input-disabled: darken(@theme-dark-color-input-disabled, 15%);
+
+@media (max-width: 576px) {
+    .ant-form-item .ant-form-item-label {
+        padding: 0;
+        line-height: 1.5715;
+    }
+}
+
+
+/* The emerging W3C standard
+   that is currently Firefox-only */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #666 #fff;
+}
+  
+  /* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+    width: 4px;
+}
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0);
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 20px;
+    border-right: 2px solid #fff;
+}
+
+
+.mbac-body {
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+
+    overflow: auto;
+}
+
+.mbac-header-sm {
+    display: flex;
+    justify-content: space-between;
+
+    .mbac-sidebar-menu-opener {
+        color:#999;
+        //background-color: #333;
+        margin: 16px;
+        /*position: fixed;
+        left:0;
+        top:100px;
+        z-index: 10;*/
+    }    
+}
+
+.mbac-drawer-side-menu {
+    .ant-drawer-header-title {
+        flex-direction: row-reverse;
+    }
+    .ant-drawer-body {
+        padding:0;
+    }
+}
+
+
+.mbac-theme-dark {
+    background-color: @theme-dark-background-0;
+    
+    .theme-background-color-0 {
+        color: @theme-dark-background-0;
+    }
+    .theme-background-color-1 {
+        color: @theme-dark-background-1;
+    }
+    .theme-color-0 {
+        color: @theme-dark-color-0;
+    }
+    .theme-color-1 {
+        color: @theme-dark-color-1;
+    }
+
+    .mbac-logo {    
+        > img {            
+            height: 62px;
+            background-color: #fff;
+        }
+    }
+
+    .mbac-loading-result {
+        .ant-result-title,
+        .ant-result-subtitle,
+        .ant-result-extra {
+            color: #bbb;
+        }
+    }
+
+    .mbac-main-header {
+        background-color: @theme-dark-background-1;
+
+        .ant-menu-light {
+            color: #bbb;
+            background-color: @theme-dark-background-1
+        }
+        .ant-menu-horizontal {
+            border-bottom: 1px solid #000
+        }
+    }
+
+    .mbac-activities-sider {
+        background-color: @theme-dark-background-1 !important;
+
+        .ant-tabs,
+        .ant-list {
+            color: #888;
+
+            .ant-comment-content-author-name {
+                color: #ccc;
+            }
+
+            .ant-comment-content-author-time {
+                color: #666;
+            }
+
+            .ant-comment-actions {
+                > li > span {
+                    color: #888;
+
+                    &:hover{
+                        color: @default-hover-color
+                    }
+                }
+            }
+
+            .ant-mentions {
+                > textarea {
+                    color: lighten(@theme-dark-color-input,15%);
+                    background-color: lighten(@theme-dark-background-input, 15%);
+                    border-color: lighten(@theme-dark-border-color-input, 15%);
+                }
+            }
+        }
+    }
+
+    .mbac-page {
+        color: #bbb;
+        background-color: @theme-dark-background-1;
+        
+        .mbac-page-header {
+            .ant-breadcrumb,
+            .ant-page-header-heading {
+                color: rgba(255, 255, 255, 0.85);
+
+                .ant-page-header-heading-title {
+                    color: rgba(255, 255, 255, 0.85);
+                }        
+                .ant-page-header-heading-sub-title {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+                
+                a {
+                    color: rgba(255, 255, 255, 0.85);
+                    &:hover {
+                        color: @default-hover-color;
+                    }
+                }
+                
+                .ant-breadcrumb-separator {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+
+            .ant-breadcrumb {
+                > span:last-child {
+                    color: rgba(255, 255, 255, 0.85);
+                }
+            }
+            background-color: @theme-dark-background-1;
+            border-bottom-color: #000;
+        }
+
+        .mbac-page-content {
+            color: #666;
+            background-color: @theme-dark-background-0;
+
+            label {
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .mbac-collapse {
+                .ant-collapse {
+                    border-color: lighten(@theme-dark-border-color-0, 15%);
+                    background-color: lighten(@theme-dark-background-0, 5%);
+                }
+                .ant-collapse > .ant-collapse-item {
+                    border-bottom-color: lighten(@theme-dark-border-color-0, 15%);
+                }
+                .ant-collapse-header{
+                    color: lighten(@theme-dark-color-0, 20%);
+                    background-color: lighten(@theme-dark-background-0, 10%);
+                    border-color: lighten(@theme-dark-border-color-0, 15%);
+                }
+                .ant-collapse-content {
+                    border-top-color: lighten(@theme-dark-border-color-0, 15%);
+                }
+                .ant-collapse-content-box{
+                    color: lighten(@theme-dark-color-0, 5%);
+                    background-color: lighten(@theme-dark-background-0, 5%);
+                    border-color: lighten(@theme-dark-border-color-0, 15%);
+                }
+            }
+
+            .ant-input,
+            .ant-picker {
+                color: @theme-dark-color-input;
+                background-color: @theme-dark-background-input;
+                border-color: @theme-dark-border-color-input;
+    
+                &.ant-picker-disabled,
+                &.ant-input-disabled {
+                    cursor: default;
+                    color: @theme-dark-color-input-disabled;
+                    background-color: @theme-dark-background-input-disabled;
+                    border-color: @theme-dark-border-color-input-disabled;                
+                }
+
+                .ant-picker-input > input[disabled],
+                .ant-picker-input > input,
+                .ant-picker-clear,
+                .ant-picker-suffix,
+                .ant-picker-separator,
+                .ant-picker-range-separator {
+                    color: inherit;
+                    background-color: inherit;
+                }
+            }
+            
+            // inputs inside a container
+            .mbac-collapse {
+                .ant-input,
+                .ant-picker {
+                    color: @theme-dark-color-input;
+                    background-color: @theme-dark-background-input;
+                    border-color: @theme-dark-border-color-input;
+        
+                    &.ant-picker-disabled,
+                    &.ant-input-disabled {
+                        cursor: default;
+                        color: @theme-dark-color-input-disabled;
+                        background-color: transparent; // @theme-dark-background-input-disabled;
+                        border-color: transparent; //@theme-dark-border-color-input-disabled;                
+                    }
+
+                    .ant-picker-input > input[disabled],
+                    .ant-picker-input > input,
+                    .ant-picker-clear,
+                    .ant-picker-suffix,
+                    .ant-picker-separator,
+                    .ant-picker-range-separator {
+                        color: inherit;
+                        background-color: inherit;
+                    }
+                }
+            }
+
+
+            .mbac-widget-simple {
+                .ant-card {
+                    color: @theme-dark-color-input;
+                    background-color: @theme-dark-background-input;
+                    border-color: @theme-dark-border-color-input;
+
+                    .ant-statistic-title {
+                        color: lighten(@theme-dark-color-input, 10%);
+                    }
+                    .ant-statistic-content-prefix {
+                        color: lighten(@theme-dark-background-input, 10%);
+                    }
+                    .ant-statistic-content-value {
+                        color: lighten(@theme-dark-background-input, 15%);
+                    }
+                }
+            }
+
+            .mbac-app-link {
+                .ant-list-item-meta-description {
+                    color: @theme-dark-color-2-input;
+                }
+    
+                .ant-select,
+                .ant-select-selector {
+                    color: @theme-dark-color-input;
+                    background-color: @theme-dark-background-input;
+                    border-color: @theme-dark-border-color-input;
+                }
+
+                .ant-select-arrow {
+                    color: inherit !important;
+                }
+
+                &.mbac-disabled {
+                    .ant-list-item-meta-description {
+                        color: @theme-dark-color-2-input-disabled;
+                    }
+                }
+            }
+
+
+            .mbac-options {
+                label.ant-radio-button-wrapper {
+                    color: @theme-dark-color-input;
+                    background-color: @theme-dark-background-input;
+                    border-color: @theme-dark-border-color-input;
+                }
+            }
+
+            .mbac-report-type-table {
+                border-color: @theme-dark-border-color-1;
+                
+                .report-general-actions {
+                    background-color: lighten(@theme-dark-background-1, 5%);
+                }
+        
+                .ant-table-title {
+                    color: lighten(@theme-dark-color-1, 15%);
+                    background-color: lighten(@theme-dark-background-1, 5%);
+                    border-bottom-color: @theme-dark-background-1;
+                }
+                .ant-table-thead > tr > th {
+                    color: lighten(@theme-dark-color-1, 15%);
+                    background-color: lighten(@theme-dark-background-1, 15%);
+                }
+                .ant-table-tbody > tr > td {
+                    color: @theme-dark-color-1;
+                    border-bottom-color: @theme-dark-background-1;
+                }
+                .ant-table-row {
+                    color: @theme-dark-color-0;
+                    background-color: @theme-dark-background-0;
+                }
+                tr.ant-table-expanded-row > td,
+                tr.ant-table-expanded-row:hover > td {
+                    background: @theme-dark-background-0 !important;
+                }
+                .ant-table-tbody > tr.ant-table-row:hover > td, 
+                .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+                    color: lighten(@theme-dark-color-1, 5%) !important;
+                    background-color: lighten(@theme-dark-background-0, 5%) !important;
+                }
+                .ant-table-container {
+                    background-color: @theme-dark-background-1;
+                }
+            }
+
+            .mbac-report-type-card {            
+                &.mbac-mode-dashboard {
+                    .mbac-card-cover {
+                        color: @theme-dark-color-input;
+                        background-color: @theme-dark-background-1;
+                        border-color: @theme-dark-border-color-1;
+       
+                        .ant-statistic-content {
+                            color: #777;
+                        }
+                        
+                        .ant-progress-inner {
+                            background-color: #666
+                        }
+                    }
+        
+                    .ant-card-body {
+                        
+                        background-color: @theme-dark-background-0;
+
+                        .ant-card-meta-title,
+                        .ant-card-meta-description {
+                            color: @theme-dark-color-1;
+
+                            .ant-typography.ant-typography-secondary {
+                                color: darken(@theme-dark-color-1, 25%);
+                            }
+                        }
+
+                        .ant-statistic-title {
+                            color: darken(@theme-dark-color-1, 25%);
+                        }
+                        .ant-statistic-content {
+                            color: @theme-dark-color-1;
+                        }
+
+                        .ant-progress-text {
+                            color: @theme-dark-color-1;
+                        }
+
+                        .ant-progress-circle-trail {
+                            stroke: darken(@theme-dark-color-1, 25%);
+                        }
+
+                    }
+            
+                    .ant-card-actions {
+                        color: @theme-dark-color-1;
+                        background-color: @theme-dark-background-0;
+                        
+                    }
+
+                    .ant-card-bordered {
+                        border-color: #888;
+
+                        .ant-card-actions {
+                            border-top-color: #666;
+                        }
+                        .ant-card-actions > li:not(:last-child) {
+                            border-right-color: #666
+                        }
+                    }
+    
+                    .mbac-description-content {
+                        color: unset;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mbac-theme-light {
+    background-color: #f1f1f1;
+
+    .mbac-main-header {
+        background-color: #fff;
+    }
+
+    .mbac-page {
+        color: #222;
+        background-color: #fff;
+        
+        .mbac-page-header {
+            background-color: #fff;
+            border-bottom-color: #e1e1e1;
+        }
+
+        .mbac-page-content {
+            background-color: #f1f1f1;
+
+            .mbac-report-type-table {
+                border-color: #d9d9d9;                
+                
+                .report-general-actions {
+                    background-color: rgb(250, 250, 250);
+                }
+        
+                .ant-table-title {
+                    background-color: rgb(250, 250, 250);
+                    border-bottom-color: #d9d9d9;
+                }
+            }
+
+            .mbac-report-type-card {            
+                &.mbac-mode-dashboard {
+                    .mbac-card-cover {
+                        background-color: #f9f9f9;
+                        border-color: #ccc;
+       
+                        .ant-statistic-content {
+                            color: #777;
+                        }
+                        
+                        .ant-progress-inner {
+                            background-color: #fff;
+                        }
+                    }
+        
+                    .ant-card-bordered {
+                        border: 1px solid #ccc;
+                    }
+    
+                    .mbac-description-content {
+                        color: unset;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.mbac-main-header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    padding: 0;
+}
+
+.mbac-activities-sider {
+    position: fixed;
+    right:0;
+    top:66px;
+    bottom:1px;
+    overflow: auto;
+}
+
+.mbac-logo {    
+    height: 63px;
+
+    > img {
+        width:180px;
+        padding:8px;
+        
+        &.small {
+          color:red;
+        }
+    }
+}
+
+// damit die Optionsauswahl bei kleineren Bildschirmen umbricht
+.ant-space {
+    flex-wrap: wrap;
+}
+
+.ant-page-header {
+    padding: 16px 0;
+}
+
+.ant-table-expanded-row {
+    > td {
+        background-color: #fff !important;
+        padding-left: 64px !important;
+    }
+}
+
+.ant-layout-sider {
+    &.ant-layout-sider-light {
+        //background: #f1f1f1;
+        background-color: #fff;
+        //border:1px solid black;
+        //padding: 16px;
+      }
+}
+
+.ant-layout-sider-light.ant-layout-sider-zero-width {
+  padding: 0;
+
+  .ant-layout-sider-children {
+    display:none;
+  }
+}
+
+.loading,
+.mbac-loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.loading.done {
+    display: block;
+    justify-content: unset;
+    align-items: unset;
+    height: unset;
+}
+
+.mbac-loading-progress {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.mbac-modal-change-password {
+    .mbac-intro {
+        border-top: 1px solid #f1f1f1;
+        padding-top: 16px;
+    }
+    .mbac-button-container {
+        border-top: 1px solid #f1f1f1;
+        padding-top: 16px;
+        display: flex;
+        justify-content: right;
+        > button {
+            margin-left: 16px
+        }
+    }
+    .ant-modal-confirm-btns {
+        display: none;
+    }
+    .anticon.anticon-exclamation-circle {
+        display: none;
+    }
+    .ant-modal-confirm-content {
+        margin-left: 0 !important
+    }
+}
+
+.mbac-login,
+.mbac-register {
+    .mbac-login-data,
+    .mbac-register-data {
+        top: 10vh;
+        padding: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: @default-boxshadow;
+
+        .mbac-welcome,
+        .mbac-introduction {
+            text-align: center;
+        }
+        
+        .mbac-login-image {
+            text-align: right;
+            border-bottom: 1px solid #f1f1f1;
+
+            > img {
+                margin-bottom: 16px;
+                height: 50px;
+                width: auto;
+            }
+        }
+
+        .mbac-loginwith-password {
+            text-align: center;
+            > * {
+                margin:8px;
+            }
+
+            .mbac-register::before {
+                content: "\A";
+                white-space: pre;
+            }
+        }
+
+        .mbac-alternate-loginservices {
+            text-align: center;
+            display: block;
+
+            .mbac-btn {
+                margin: 8px
+            }
+        }
+
+        .mbac-current-step-content {
+            .mbac-step-explanation {
+                margin-bottom: 16px !important;
+            }
+        }
+
+        .mbac-register-btn,
+        .mbac-forgot-password-btn {
+            text-align: right;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid #f1f1f1;
+
+            > button {
+                margin:8px
+            }
+        }
+
+        .mbac-register-steps,
+        .mbac-forgot-password-steps {
+            padding: 16px; //32px 16px; 
+            margin-bottom: 16px;
+        }
+
+        .mbac-registration-success-moreinfo {
+            h4 {
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            p {
+                font-size: 18px;
+                font-weight: 200;
+                color: #888;
+            }
+        }
+
+    }
+}
+
+.ant-collapse-extra {
+    .anticon {
+        margin-left: 16px;
+        font-size: 18px;
+
+        :hover {
+            color: orange
+        }
+    }
+}
+
+.diff-drawer {
+  h3 {
+    color: #666
+  }
+  .ant-divider {
+    color: #999;
+    //font-weight: 400;
+  }
+
+  .difference {
+      font-family: monospace;
+      
+      > del {
+          background-color: rgb(255, 224, 224);
+          text-decoration: line-through;
+          padding: 2px;
+      }
+      
+      > ins {
+          background-color: rgb(201, 238, 211);
+          text-decoration: none;
+          padding: 2px;
+      }
+  }
+}
+
+
+/* Summernote editor user-styles */
+.summernote-airmode {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.note-editor {
+    &.fullscreen {
+        background-color: #fff;
+        height: 100%;
+        padding: 16px;
+        overflow-x: scroll;
+    }
+}
+// end summernote
+
+
+
+/*main {
+  section.ant-layout {
+    padding: 16px;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+}*/
+
+
+// hide ad from markerjs.com
+a[href="https://markerjs.com/"] {
+    display: none !important;
+}
+
+
+.mbac-app-action-remove {
+    color: red;
+    &:hover {
+        color: #fff !important;
+        background-color: rgb(131, 42, 42) !important;
+        border-color: red !important;
+    }
+}
+
+.mbac-page-scroll-container {
+    position: fixed;
+    top: 130px;
+    left:0;
+    right:0;
+    bottom:70px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    padding: 8px;
+
+    background-color: #fff;
+}
+
+.mbac-tab-content {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+
+.mbac-document-tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    position: fixed;
+    height:70px;
+    bottom: 0;
+    width:100%;
+
+    background-color: #fff;
+    color: #888;
+
+    border-top: 1px solid #666;
+
+    .mbac-tab {
+        display: inline-grid;
+        justify-content: center;
+        text-align: center;
+        width: 24%;
+
+        &:not(:last-child) {
+            border-right: 1px solid #eee
+        }
+
+        > i {
+            font-size: 20px;
+        }
+
+        > span {
+            margin-top: 8px;
+            font-size: 10px;
+        }
+
+        &.active {
+            color: @default-active-color
+        }
+    }
+}
+
+.mbac-main-content {
+    .mbac-loading-result {
+        position: fixed;
+        top: 66px;
+        right: 0;
+        left: 0;
+    }
+
+    .mbac-record-page,
+    .mbac-report-page,
+    .mbac-app-dashboard-page {
+        .mbac-page-header {
+            //THEME background-color: #fff;
+            position: fixed;
+            top: 66px;
+            right: 0;
+            left: 0;
+
+            border-bottom:1px solid; //THEME #e1e1e1;
+            margin-bottom:16px;
+
+            padding:8px 16px;
+            
+            .ant-page-header-heading {
+                // no break for app-actions on smaller devices 
+                flex-wrap: nowrap;
+            }
+        }
+        .mbac-page-content {
+            //THEME background-color: #f1f1f1;
+
+            position: fixed;
+            left:16px;
+            top:160px;
+            bottom:1px;
+            right: 0;
+            width:unset;
+            padding-right: 16px;
+
+            padding-top: 32px;
+            padding-bottom: 32px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            @media (max-width: 576px) {
+                left: 4px;
+                padding-right: 4px;
+                padding-bottom: 16px;
+                padding-top: 16px;
+
+                .ant-form-item {
+                    margin-bottom: 2px;
+                }
+            }
+        }
+        
+    }
+
+    &.mbac-has-activities-sider {
+        .mbac-loading-result {
+            right: 404px;
+            padding-right: 8px;
+        }
+
+        .mbac-record-page,
+        .mbac-app-dashboard-page {
+            .mbac-page-header {
+                right: 402px;
+            }
+            .mbac-page-content {
+                right: 404px;
+                padding-right: 8px;
+            }
+        }
+    }
+
+    &.mbac-has-document-tabs {
+        .mbac-page-content {
+            bottom: 70px;
+        }
+    }
+
+    &.mbac-small-page-header {
+        .mbac-page-content {
+            top:130px;
+        }
+    }
+
+}
+
+
+.mbac-layout-element {
+    &.mbac-input {
+        &.mbac-currency {
+            input {
+                text-align: right;
+            }
+        }
+    }
+
+    &.mbac-spacer {
+        .ant-form-item-control-input-content {
+            display: inline-flex;
+            column-gap: 12px;
+        }
+    }
+
+    &.mbac-image {
+        .ant-image {
+            display: block;
+        }
+    }
+
+    // Card-report-styling für Dashboards
+    &.mbac-report {
+        &.mbac-report-type-card {            
+            &.mbac-mode-dashboard {
+                .ant-card {
+                    box-shadow: @default-boxshadow;
+                }
+
+                .mbac-card-cover {
+                    padding: 16px;
+                    //THEME background-color: #f9f9f9;
+                    border: 1px solid; //THEME #ccc;
+                    text-align: center;
+
+                    > img {
+                        width: auto;
+                        vertical-align: middle;
+                        border-style: none;
+                        height: 150px;
+                        max-width: 250px;
+                        text-align: center;
+                    }
+                }
+
+                .ant-card-body {
+                    //height: 350px;
+                    overflow: hidden;
+                }
+
+                .ant-card-bordered {
+                    border: 1px solid; // THEME #ccc;
+                }
+
+                .mbac-description-content {
+                    color: unset;
+                }
+            }
+        }
+    }
+
+    &.mbac-widget-simple,
+    &.mbac-report-type-table {
+        //border: 1px solid #ddd;
+        box-shadow: @default-boxshadow;
+    }
+
+    &.mbac-collapse {
+        .ant-collapse-item {
+            //border: 1px solid #ddd;
+            box-shadow: @default-boxshadow;
+        }
+    }
+
+    &.mbac-report-type-table {
+        border: 1px solid; //THEME #d9d9d9;
+        box-shadow: @default-boxshadow;
+        border-radius: 2px;
+        
+        .report-general-actions {
+            //THEME background-color: rgb(250, 250, 250);
+            padding: 8px;
+            display: flex;
+            justify-content: right;
+        }
+
+        .ant-table-title {
+            //THEME background-color: rgb(250, 250, 250);
+            border-bottom: 1px solid //THEME #d9d9d9;
+        }
+
+        tr.ant-table-expanded-row > td,
+        tr.ant-table-expanded-row:hover > td {
+            cursor: pointer;
+        }
+        .ant-table-tbody > tr.ant-table-row:hover > td, 
+        .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+            cursor: pointer;
+        }
+    }
+}
+
+/* individuelle Reportsyteling ***/
+.mbac-report {
+    &.mbac-report-dozenten-all {
+        .mbac-card-cover {
+            padding: unset !important;
+
+            > img {
+                width: 100% !important;
+                height: unset !important;
+                max-width: unset !important;
+            }
+        }
+
+        .ant-card-body {
+            height: unset !important;
+            overflow: unset !important;
+        }
+    }
+}
+
+.ant-radio-button-wrapper {
+    margin: 4px
+}
+.ant-radio-button-wrapper:first-child {
+    margin: 0
+}
+.ant-radio-button-wrapper-checked {
+    color: var(--radio-color) !important;
+    background-color: var(--radio-bgcolor) !important;
+    border-color: var(--radio-bgcolor) !important;
+}
+
+.mbac-shared-with-container {
+    .mbac-shared-with-container-title {
+        color: @theme-dark-color-1;
+    }
+    .mbac-list-shared-with-users {
+        li {
+            border-bottom-color:  @theme-dark-border-color-1;//THEME #e1e1e1;
+            .ant-typography {
+                color: @theme-dark-color-1;
+            }
+        }
+    }
+
+    .ant-typography {
+        color: @theme-dark-color-1;
+    }
+}
+.mbac-list-shared-with-users {
+    .ant-list-item-meta-title {
+        color: #444;
+        font-weight: 400;
+        margin-top: 6px;
+    }
+    li {
+        border-bottom:1px solid;
+    }
+}
+
+.ant-typography {
+    color: #444;
+}
+
+.module-list-input-selected-items {
+    margin-top: -8px
+}
+
+.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled) {
+    z-index: unset; //z-index: 1; führte dazu, dass der Option-button über dem Affix-Bereich liegt
+}
+
+
