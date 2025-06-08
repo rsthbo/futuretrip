@@ -59,7 +59,7 @@ export const Lieferanten = Apm.createApp<Lieferant>('lieferanten', {
         strasse: {
             type: EnumFieldTypes.ftString,
             rules: [
-                { required: true, message: 'Bitte geben Sie die Strasse des Lieferanten an.' },
+                { required: true, message: 'Bitte geben Sie die Straße des Lieferanten an.' },
             ],
             ...FieldNamesAndMessages('der', 'Lieferant', 'die', 'Lieferanten'),
             ...defaultSecurityLevel
